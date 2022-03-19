@@ -52,13 +52,13 @@ public class Telaprincipal extends javax.swing.JFrame {
         initComponents();
         iniciarGridLayout();
         
-        
+        //iniciando os componentes
         
        
        }
     
     public void timer(){
-        
+        ///tentativa de fazer um timer
         segundo = new segundo();
         minuto = new minuto();
         horas = new horas();
@@ -74,14 +74,15 @@ public class Telaprincipal extends javax.swing.JFrame {
     }
     public final void iniciarGridLayout(){
          QuartosDAO qDAO = new QuartosDAO();     
-         
+         //JPQRT É O ID DO GRIDLAYOUT
          JPQrt.setLayout(new GridLayout(4,5,10,10));
         for (Quartos q : qDAO.read()){
+            //LBL É A JLABEL RESPONSÁVEL POR MOSTRAR AS INFORMAÇÕES DOS QUARTOS
             lbl = new ModeloQuarto();
             ModeloQuarto.txtNumero.setText(q.getNumeroQuarto());
             ModeloQuarto.tpQuarto.setText(q.getNomeQuarto());
             ModeloQuarto.txtStatus.setText(q.getStatus());
-            
+            //AQUI MOSTRA TODAS AS INFORMAÇÕES DOS QUARTOS
             if("DISPONIVEL".equals(q.getStatus())){
                 lbl.setBackground(new Color(255,255,255));
             }
